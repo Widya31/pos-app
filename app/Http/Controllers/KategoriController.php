@@ -18,6 +18,17 @@ class KategoriController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function reqajax($id)
+    {
+        $catdata = Kategori1::find($id);
+        return $catdata;
+    }
+
+    public function get_data_cat($id)
+    {
+        print_r($id);die;
+    }
+
     public function index(Request $request)
     {
         $search = $request->query('search');
@@ -89,7 +100,7 @@ class KategoriController extends Controller
      */
     public function show(string $id)
     {
-        $kategori = Kategori::find($id);
+        $kategori = Kategori1::find($id);
 
         return response()->json($kategori);
     }
@@ -110,9 +121,12 @@ class KategoriController extends Controller
      */
     public function updatedt(Request $request, string $id)
     {
-        $kategori = Kategori1::find($id);
+        $kategori = Kategori1::find($request->kategori_id);
+        // echo"<pre>";
+        // print_r($request->kategori_id);die;
+        // echo"</pre>";
         $kategori->nama_kategori = $request->nama_kategori;
-        $kategori->update();
+        $kategori->save();
 
         return redirect()->route('index');
     }

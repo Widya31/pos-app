@@ -79,20 +79,22 @@
                         </tr>
                     </thead>
                     <tbody>
+
                         @php
                         $i = 1 + (($kategori->currentPage() - 1) * $kategori->perPage());
                         @endphp
-                    @foreach ($kategori as $item)
-                        <tr>
-                            <td>{{$i++}}</td>
-                            <td>{{ $item -> nama_kategori}}</td>
-                            <td>
-                                <a href="/admin/{{$item->id}}/hapusdt" class="btn btn-outline-danger shadow rounded-3 border-3 "><i class="icon-copy fa fa-trash" aria-hidden="true"></i></a>&nbsp;
-                                <a href="/admin/{{$item->id}}/editdt" data-toggle="modal" data-target="#modal-edit" class="btn btn-outline-info shadow rounded-3 border-5"><i class="icon-copy fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                            </td>
-                        </tr>
-                        <!-- Add more data rows as needed -->
-                    @endforeach
+
+                        @foreach ($kategori as $item)
+                            <tr>
+                                <td>{{$i++}}</td>
+                                <td>{{ $item -> nama_kategori}}</td>
+                                <td>
+                                    <a href="/admin/{{$item->id}}/hapusdt" class="btn btn-outline-danger shadow rounded-3 border-3 "><i class="icon-copy fa fa-trash" aria-hidden="true"></i></a>&nbsp;
+                                    <button data-toggle="modal" data-id="{{$item->id}}" data-target="#modal-ecategory" class="btn btn-outline-info shadow rounded-3 border-5 catedit"><i class="icon-copy fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                                </td>
+                            </tr>
+                            <!-- Add more data rows as needed -->
+                        @endforeach
                     </tbody>
                 </table>
                 {{-- {{ $kategori->links() }} --}}
@@ -104,8 +106,37 @@
 </div>
 </div>
 </div>
-@include('kategori.form')
-@include('kategori.edit')
+
+<div class="modal fade" id="modal-ecategory" tabindex="-1" role="dialog" aria-labelledby="modal-ecategory">
+    <div class="modal-dialog modal-lg" role="document">
+        <form action="{{ route('updatedt', $item->id) }}" method="post" enctype="multipart/form-data" class="form-horizontal">
+            @csrf
+            @method('post')
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>Edit Kategori</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group row">
+                        <label for="nama_kategori" class="col-lg-12 col-lg-offset-1 control-label mt-2">Nama Kategori</label>
+                        <div class="col-lg-12">
+                            <input type="text" value="" name="nama_kategori" id="nama_kategori" class="form-control" required autofocus>
+                            <input type="hidden" value="" name="kategori_id" id="kategori_id" class="form-control" required autofocus>
+                            <span class="help-block with-errors"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-sm btn-flat btn-primary" style="border-color: #35A29F; background-color:#35A29F;" data-color="#fff">Update</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
 {{-- <script>
     document.addEventListener("DOMContentLoaded", function() {
         const perPageSelect = document.getElementById("perPage");
@@ -115,4 +146,28 @@
         });
     });
 </script> --}}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    function toggleSelectAll(source) {
+        var checkboxes = document.querySelectorAll('tbody input[type="checkbox"]');
+        checkboxes.forEach(function(checkbox) {
+            checkbox.checked = source.checked;
+        });
+    }
+    
+    $('document').ready(function () {
+        $('.catedit').click(function () {
+            var id = $(this).attr('data-id');
+            $.get('reqajax/' + id).done((res) => {
+                $('#nama_kategori').val(res.nama_kategori);
+                $('#kategori_id').val(res.id);
+                // Ensure the value is set after receiving the response
+            });
+        });
+    });
+</script>
+
+@include('kategori.form')
+
 @endsection
