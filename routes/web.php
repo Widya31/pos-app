@@ -70,6 +70,8 @@ Route::post('/simpan1',[App\Http\Controllers\ProdukController::class,'store'])->
 Route::post('/admin/{id}/update1',[App\Http\Controllers\ProdukController::class,'update1'])->name('update1');
 Route::get('/admin/{id}/hapus1',[App\Http\Controllers\ProdukController::class,'hapus1'])->name('hapus1');
 
+Route::get('test/{id}',[App\Http\Controllers\MemberController::class,'test'])->name('test');
+Route::get('/get_data_member/{id}',[App\Http\Controllers\MemberController::class,'get_data_member'])->name('get_data_member');
 Route::get('/member',[App\Http\Controllers\MemberController::class,'dtmember'])->name('dtmember');
 Route::post('/smember',[App\Http\Controllers\MemberController::class,'tmember'])->name('smember');
 Route::get('/admin/{id}/emember',[App\Http\Controllers\MemberController::class,'emember'])->name('emember');
@@ -85,3 +87,4 @@ Route::get('/admin/{id}/hsup',[App\Http\Controllers\SupplierController::class,'h
 
 Route::get('/pengeluaran',[App\Http\Controllers\PengeluaranController::class,'dtluar'])->name('dtluar');
 Route::post('/tjenis',[App\Http\Controllers\PengeluaranController::class,'tjenis'])->name('tjenis');
+Route::get('/admin/{id}/huar',[App\Http\Controllers\PengeluaranController::class,'huar'])->name('huar');

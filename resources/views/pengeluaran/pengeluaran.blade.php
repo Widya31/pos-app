@@ -140,10 +140,12 @@
             </div>
             <div class="col-6">
                 <div class="d-flex justify-content-end">
-                    <div class="form-inline">
-                        <label class="mr-2">Search :</label>
-                        <input type="text" class="form-control form-control-sm">
-                    </div>
+                    <form method="GET">
+                        <div class="form-inline">
+                            <label for="search" class="mr-2">Search :</label>
+                            <input type="text" value="{{ $search1 }}" name="search1" class="form-control form-control-sm">
+                        </div>
+                        </form>
                 </div>
             </div>
         </div>
@@ -159,14 +161,14 @@
                     </thead>
                     <tbody>
                         @php
-                        $i = 1 + (($data->currentPage() - 1) * $data->perPage());
+                        $i = 1 + (($luar->currentPage() - 1) * $luar->perPage());
                         @endphp
-                    @foreach ($data as $item)
+                    @foreach ($luar as $item)
                         <tr>
                             <td>{{$i++}}</td>
                             <td>{{ $item -> jenis_pengeluaran}}</td>
                             <td>
-                                <button href="#" class="btn btn-outline-danger shadow rounded-3 border-3 "><i class="icon-copy fa fa-trash" aria-hidden="true"></i></button>&nbsp;
+                                <a href="/admin/{{$item->id_jenis_pengeluaran}}/huar" class="btn btn-outline-danger shadow rounded-3 border-3 "><i class="icon-copy fa fa-trash" aria-hidden="true"></i></a>&nbsp;
                                 <button href="#" class="btn btn-outline-info shadow rounded-3 border-5"><i class="icon-copy fa fa-pencil-square-o" aria-hidden="true"></i></button>
                             </td>
                         </tr>
@@ -174,6 +176,7 @@
                         <!-- Add more data rows as needed -->
                     </tbody>
                 </table>
+                {!! $jenis_pengeluaran->appends(Request::except('page'))->render() !!}
             </div>
         </div>
         </div>

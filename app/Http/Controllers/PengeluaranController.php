@@ -10,11 +10,29 @@ class PengeluaranController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function dtluar()
+    public function dtluar(Request $request)
     {
-        $data= JenisPengeluaran::all();
+        $search1 = $request->query('search1');
 
-        return view('pengeluaran.pengeluaran', compact('data'));
+        if (!empty($search1)) {
+            $luar = JenisPengeluaran::where('jenis_pengeluaran.jenis_pengeluaran', 'like', '%' . $search1 . '%')
+                ->latest('created_at') // Mengurutkan berdasarkan created_at terbaru
+                ->paginate(5)->onEachSide(3)->fragment('jns');
+        } else {
+            $luar = JenisPengeluaran::latest('created_at') // Mengurutkan berdasarkan created_at terbaru
+                ->paginate(5)->onEachSide(3)->fragment('jns');
+        }
+
+        $newJenis = new JenisPengeluaran();
+
+        return view('pengeluaran.pengeluaran', compact('luar', 'newJenis'))->with([
+            'jenis_pengeluaran' => $luar,
+            'search1' => $search1
+        ]);
+
+        // $data= JenisPengeluaran::all();
+
+        // return view('pengeluaran.pengeluaran', compact('data'));
     }
 
     /**
@@ -28,6 +46,14 @@ class PengeluaranController extends Controller
 
         return redirect()->route('dtluar');
 
+    }
+
+    public function huar(string $id)
+    {
+        $luar = JenisPengeluaran::find($id);
+        $luar->delete();
+
+        return redirect()->back()->with('toast_success', 'Data Berhasil Dihapus!');
     }
 
     /**

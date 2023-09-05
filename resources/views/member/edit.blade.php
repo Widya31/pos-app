@@ -1,4 +1,4 @@
-<div class="modal fade" id="modal-emember" tabindex="-1" role="dialog" aria-labelledby="modal-emember">
+<div class="modal fade" id="modal-emembe" tabindex="-1" role="dialog" aria-labelledby="modal-emember">
     <div class="modal-dialog modal-lg" role="document">
         <form action="/admin/{{$dt->id_member}}/umember" method="post" enctype="multipart/form-data" class="form-horizontal">
             @csrf
@@ -22,7 +22,7 @@
                     <div class="form-group row">
                         <label for="alamat" class="col-lg-12 col-lg-offset-1 control-label mt-2">Alamat</label>
                         <div class="col-lg-12">
-                            <input type="text" value="{{$dt->alamat}}" name="alamat" id="alamat" class="form-control" required autofocus>
+                            <input type="text" value="" name="alamat" id="alamat" class="form-control" required autofocus>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>

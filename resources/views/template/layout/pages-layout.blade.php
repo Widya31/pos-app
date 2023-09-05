@@ -208,7 +208,7 @@
 				<div class="sidebar-menu">
 					<ul id="accordion-menu">
 						<li>
-							<a href="home" class="dropdown-toggle no-arrow">
+							<a href="/home" class="dropdown-toggle no-arrow">
 								<span class="micon bi bi-house"></span
 								><span class="mtext">Home</span>
 							</a>
@@ -220,13 +220,13 @@
 							<div class="sidebar-small-cap">Master</div>
 						</li>
                         <li>
-							<a href="kategori" class="dropdown-toggle no-arrow">
+							<a href="/kategori" class="dropdown-toggle no-arrow">
 								<span class="micon bi bi-list"></span
 								><span class="mtext">Kategori</span>
 							</a>
 						</li>
 						<li>
-							<a href="produk" class="dropdown-toggle no-arrow">
+							<a href="/produk" class="dropdown-toggle no-arrow">
 								<span class="micon bi bi-box"></span
 								><span class="mtext">Produk</span>
 							</a>

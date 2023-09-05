@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Models\Member;
 use App\Http\Helpers;
@@ -31,6 +32,16 @@ class MemberController extends Controller
             'members' => $dtmember,
             'search' => $search
         ]);
+    }
+
+    public function test($id)
+    {
+        $data = Member::find($id);
+        return $data;
+    }
+    public function get_data_member($id)
+    {
+        print_r($id);die;
     }
 
     /**
@@ -99,7 +110,7 @@ class MemberController extends Controller
         $dt->alamat = $request->alamat;
         $dt->telepon = $request->telepon;
 
-        $dt->update($request->all());
+       $dt->save();
 
         // $dtmember->update();
         //return view('member.member', compact('dt'));
