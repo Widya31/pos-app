@@ -142,14 +142,14 @@
                             <input type="text" value="" name="alamat" id="alamat" class="form-control" required autofocus>
                             <span class="help-block with-errors"></span>
                         </div>
-                    </div>
+                    </div> 
                     <div class="form-group row">
                         <label for="telepon" class="col-lg-12 col-lg-offset-1 control-label mt-2">Telepon</label>
                         <div class="col-lg-12">
                             <input type="text" value="" name="telepon" id="telepon" class="form-control" required autofocus>
                             <span class="help-block with-errors"></span>
                         </div>
-                    </div> 
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-sm btn-flat btn-primary" style="border-color: #35A29F; background-color:#35A29F;" data-color="#fff">Update</button>
