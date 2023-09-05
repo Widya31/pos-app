@@ -39,6 +39,7 @@ class MemberController extends Controller
         $data = Member::find($id);
         return $data;
     }
+    
     public function get_data_member($id)
     {
         print_r($id);die;

@@ -86,7 +86,7 @@
                             <td>{{ $dt -> telepon}}</td>
                             <td>
                                 <a href="/admin/{{$dt->id_supplier}}/hsup" class="btn btn-outline-danger shadow rounded-3 border-3 "><i class="icon-copy fa fa-trash" aria-hidden="true"></i></a>&nbsp;
-                                <a href="/admin/{{$dt->id_supplier}}/usup" data-toggle="modal" data-target="#modal-emember" class="btn btn-outline-info shadow rounded-3 border-5"><i class="icon-copy fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                <button data-toggle="modal" data-target="#editSupplier" class="btn btn-outline-info shadow rounded-3 border-5"><i class="icon-copy fa fa-pencil-square-o" aria-hidden="true"></i></button>
                             </td>
                         </tr>
                     @endforeach

@@ -110,7 +110,7 @@ class SupplierController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function umember(Request $request, string $id)
+    public function usup(Request $request, string $id)
     {
         $dt = Supplier::find($id);
         $dt->nama = $request->nama;

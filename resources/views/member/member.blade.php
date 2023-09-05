@@ -85,9 +85,11 @@
                         </tr>
                     </thead>
                     <tbody>
+
                         @php
                         $i = 1 + (($dtmember->currentPage() - 1) * $dtmember->perPage());
                         @endphp
+
                     @foreach ($dtmember as $dt)
                         <tr>
                             <td><input type="checkbox"></td>
@@ -98,7 +100,7 @@
                             <td>{{ $dt -> telepon}}</td>
                             <td>
                                 <a href="/admin/{{$dt->id_member}}/hps" class="btn btn-outline-danger shadow rounded-3 border-3 "><i class="icon-copy fa fa-trash" aria-hidden="true"></i></a>&nbsp;
-                                <a href="/admin/{{$dt->id_member}}/umember" data-toggle="modal" data-id ="{{$dt->id_member}}" data-target="#modal-emember" class="btn btn-outline-info shadow rounded-3 border-5 edit"><i class="icon-copy fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                <button data-toggle="modal" data-id ="{{$dt->id_member}}" data-target="#modal-emember" class="btn btn-outline-info shadow rounded-3 border-5 edit"><i class="icon-copy fa fa-pencil-square-o" aria-hidden="true"></i></button>
                             </td>
                         </tr>
                     @endforeach
@@ -116,7 +118,7 @@
 
 <div class="modal fade" id="modal-emember" tabindex="-1" role="dialog" aria-labelledby="modal-emember">
     <div class="modal-dialog modal-lg" role="document">
-        <form action="/admin/{{$dt->id_member}}/umember" method="post" enctype="multipart/form-data" class="form-horizontal">
+        <form action="{{route ('umember', $dt->id_member)}}" method="post" enctype="multipart/form-data" class="form-horizontal">
             @csrf
             @method('post')
 

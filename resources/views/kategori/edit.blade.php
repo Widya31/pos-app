@@ -1,6 +1,6 @@
-<div class="modal fade" id="modal-edit" tabindex="-1" role="dialog" aria-labelledby="modal-edit">
+<div class="modal fade" id="moda" tabindex="-1" role="dialog" aria-labelledby="modal-edit">
     <div class="modal-dialog modal-lg" role="document">
-        <form action="{{ route('updatedt', ['id' => $item->id]) }}" method="post" enctype="multipart/form-data" class="form-horizontal">
+        <form action="{{route ('updatedt', $item->id)}}" method="post" enctype="multipart/form-data" class="form-horizontal">
             @csrf
             @method('post')
 
