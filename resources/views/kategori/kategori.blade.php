@@ -1,6 +1,7 @@
 @extends('template.layout.pages-layout')
 @section('pageTitle', isset($pageTitle) ? $pageTitle : 'Page title here')
 @section('content')
+<h1>success?</h1>
 <div class="main-container">
     <div class="pd-ltr-20 xs-pd-20-10">
         <div class="min-height-200px">
@@ -128,7 +129,7 @@
                             <input type="hidden" value="" name="kategori_id" id="kategori_id" class="form-control" required autofocus>
                             <span class="help-block with-errors"></span>
                         </div>
-                        
+
                     </div>
                 </div>
                 <div class="modal-footer">
