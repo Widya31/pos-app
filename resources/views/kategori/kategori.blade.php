@@ -128,6 +128,7 @@
                             <input type="hidden" value="" name="kategori_id" id="kategori_id" class="form-control" required autofocus>
                             <span class="help-block with-errors"></span>
                         </div>
+                        
                     </div>
                 </div>
                 <div class="modal-footer">
