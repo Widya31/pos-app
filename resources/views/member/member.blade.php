@@ -134,6 +134,7 @@
                         <label for="nama" class="col-lg-12 col-lg-offset-1 control-label mt-2">Nama</label>
                         <div class="col-lg-12">
                             <input type="text" value="" name="nama" id="nama" class="form-control" required autofocus>
+                            <input type="hidden" value="" name="member_id" id="member_id" class="form-control" required autofocus>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
@@ -143,7 +144,7 @@
                             <input type="text" value="" name="alamat" id="alamat" class="form-control" required autofocus>
                             <span class="help-block with-errors"></span>
                         </div>
-                    </div>
+                    </div>  
                     <div class="form-group row">
                         <label for="telepon" class="col-lg-12 col-lg-offset-1 control-label mt-2">Telepon</label>
                         <div class="col-lg-12">
@@ -186,6 +187,7 @@
                 $('#nama').val(res.nama)
                 $('#alamat').val(res.alamat)
                 $('#telepon').val(res.telepon)
+                $('#member_id').val(res.id_member)
             })
         })
     })

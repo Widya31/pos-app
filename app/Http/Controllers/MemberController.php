@@ -105,12 +105,12 @@ class MemberController extends Controller
         //     'alamat' => 'required',
         //     'telepon' => 'required',
         // ]);
-        $dt = Member::find($id);
+        $dt = Member::find($request->member_id);
         // $dtmember->update($request->all());
         $dt->nama = $request->nama;
         $dt->alamat = $request->alamat;
         $dt->telepon = $request->telepon;
-
+ 
        $dt->save();
 
         // $dtmember->update();
