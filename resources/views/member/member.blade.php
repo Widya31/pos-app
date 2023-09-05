@@ -142,7 +142,7 @@
                             <input type="text" value="" name="alamat" id="alamat" class="form-control" required autofocus>
                             <span class="help-block with-errors"></span>
                         </div>
-                    </div> 
+                    </div>  
                     <div class="form-group row">
                         <label for="telepon" class="col-lg-12 col-lg-offset-1 control-label mt-2">Telepon</label>
                         <div class="col-lg-12">

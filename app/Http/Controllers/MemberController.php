@@ -98,7 +98,7 @@ class MemberController extends Controller
      * Update the specified resource in storage.
      */
     public function umember(Request $request, string $id)
-    {  
+    {
         // $this->validate($request,[
         //     'nama' => 'required',
         //     'alamat' => 'required',
@@ -109,7 +109,7 @@ class MemberController extends Controller
         $dt->nama = $request->nama;
         $dt->alamat = $request->alamat;
         $dt->telepon = $request->telepon;
-
+ 
        $dt->save();
 
         // $dtmember->update();
