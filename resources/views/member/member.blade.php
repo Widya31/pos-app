@@ -149,7 +149,7 @@
                             <input type="text" value="" name="telepon" id="telepon" class="form-control" required autofocus>
                             <span class="help-block with-errors"></span>
                         </div>
-                    </div>
+                    </div> 
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-sm btn-flat btn-primary" style="border-color: #35A29F; background-color:#35A29F;" data-color="#fff">Update</button>
